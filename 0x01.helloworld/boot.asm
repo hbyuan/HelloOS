@@ -1,28 +1,3 @@
-# HelloOS
-基于IA32的迷你操作系统
-
-## 0x00.准备工作
-OS：ununtu 14.04 LTS
-
-汇编编译工具：NASM 2.10.09
-
-运行调试环境：Bochs x86 Emulator 2.4.6
-
-## 0x01.Hello World
-
-###目标：
-系统引导启动，输出“Hello, World!”
-
-###准备知识：
-
-Memory Map (x86) http://wiki.osdev.org/index.php?title=Memory_Map_(x86)&oldid=13415
-
-BIOS中断说明 https://en.wikipedia.org/wiki/BIOS_interrupt_call
-
-BIOS颜色表 https://en.wikipedia.org/wiki/BIOS_color_attributes
-
-###代码：
-```
 ;系统启动引导程序
 ;
 ;程序装载地址必须为0x7c00H，大小512b，0xaa55h结尾 
@@ -71,5 +46,3 @@ Bootmessage: db 10,"Hello, World!",10
 BootmessageLength: equ $-Bootmessage
 times 510-($-$$) db 0
 dw 0xaa55
-
-```
